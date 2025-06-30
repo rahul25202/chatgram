@@ -8,6 +8,8 @@ import path from "path";
 import userRoute from "./routes/user.route.js";
 import messageRoute from "./routes/message.route.js";
 import { app, server } from "./SocketIO/server.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 dotenv.config();
 
@@ -33,12 +35,15 @@ app.use("/api/message", messageRoute);
 
 //deployment
 
-if(process.env.NODE_ENV === "production"){
-const dirPath = path.resolve();
-app.use(express.static("./Frontend/dist"));
-app.get("*", (req, res) =>{
-res.sendFile(path.resolve(dirPath, "./Frontend/dist","index.html"));
-})
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'));
+  });
 }
 
 //server
