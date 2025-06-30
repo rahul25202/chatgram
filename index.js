@@ -35,15 +35,12 @@ app.use("/api/message", messageRoute);
 
 //deployment
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'));
-  });
+if(process.env.NODE_ENV === "production"){
+const dirPath = path.resolve();
+app.use(express.static("./Frontend/dist"));
+app.get("*", (req, res) =>{
+res.sendFile(path.resolve(dirPath, "./Frontend/dist","index.html"));
+})
 }
 
 //server
