@@ -31,6 +31,7 @@ app.use("/api/user", userRoute);
 app.use("/api/message", messageRoute);
 
 
+//deployment
 
 if(process.env.NODE_ENV === "production"){
 const dirPath = path.resolve();
@@ -40,7 +41,7 @@ res.sendFile(path.resolve(dirPath, "./Frontend/dist","index.html"));
 })
 }
 
-
+//server
 server.listen(PORT, () => {
     console.log(`Server is Running on port ${PORT}`);
 });
