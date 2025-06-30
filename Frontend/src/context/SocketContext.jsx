@@ -15,7 +15,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("https://chatgram-2-bhpp.onrender.com", {
+      const socket = io("https://chatgram-3-bhpp.onrender.com", {
         query: {
           userId: authUser.user._id,
         },

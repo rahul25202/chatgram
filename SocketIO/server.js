@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://chatgram-2-bhpp.onrender.com",
+    origin: "https://chatgram-3-bhpp.onrender.com",
     methods: ["GET", "POST"],
   },
 });
