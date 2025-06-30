@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://chatgram-wgct.onrender.com",
+    origin: "https://chatgram-deployed.onrender.com",
     methods: ["GET", "POST"],
   },
 });

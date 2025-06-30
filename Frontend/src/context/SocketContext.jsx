@@ -15,7 +15,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("https://chatgram-wgct.onrender.com", {
+      const socket = io("https://chatgram-deployed.onrender.com", {
         query: {
           userId: authUser.user._id,
         },
